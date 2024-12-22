@@ -1,0 +1,14 @@
+/* VENDORS */
+@import '../../node_modules/normalize.css/normalize';
+
+/* GLOBAL */
+@import './common/variables';
+@import './common/fonts';
+@import './common/global';
+@import './common/mixins';
+
+/* BLOCKS */
+@import './blocks/page';
+@import './blocks/header';
+@import './blocks/main';
+@import './blocks/footer';
