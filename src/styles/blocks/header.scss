@@ -42,9 +42,10 @@
   inset: 0;
   position: fixed;
   z-index: 9;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   height: 100vh;
-  padding: 132px 16px 40px;
+  padding: 124px 16px 40px;
   background-color: $color-dark;
   visibility: hidden;
   opacity: 0;
@@ -116,10 +117,7 @@
   width: 100%;
   min-width: 190px;
   height: max-content;
-
-  @include vp-768 {
-    margin-top: auto;
-  }
+  margin-top: auto;
 }
 
 .header__btn-wrapper {

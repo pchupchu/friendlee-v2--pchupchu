@@ -1,6 +1,7 @@
 .hero {
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -18,4 +19,42 @@
   z-index: 0;
   width: 100%;
   height: 100%;
+}
+
+.hero__wrapper {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 16px;
+  overflow: hidden;
+  animation: hero-animation 1.2s $cubic-bezier forwards;
+}
+
+.hero__title {
+  position: relative;
+  width: 100%;
+  margin: auto 0 32px;
+  font-weight: 500;
+  font-size: 31px;
+  line-height: 0.9;
+  text-align: center;
+  color: $color-dark;
+  letter-spacing: -0.04em;
+}
+
+@keyframes hero-animation {
+  from {
+    transform: translateY(120px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
