@@ -1,7 +1,12 @@
-body {
-  // font-family: Roboto, sans-serif;
-  font-size: 14px;
-  line-height: 20px;
-  color: $base-black;
-  background-color: $base-white;
+* {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+// @media (hover: hover) {
+//   .page {
+//     cursor: none;
+//   }
+// }

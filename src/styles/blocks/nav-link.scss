@@ -1,0 +1,43 @@
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.nav-link__wrapper {
+  max-height: 40px;
+}
+
+.nav-link__text {
+  transform-origin: right;
+}
+
+.nav-link__text-copy {
+  text-decoration: underline;
+  transform: rotate(30deg);
+  transform-origin: left;
+}
+
+.nav-link__text,
+.nav-link__text-copy {
+  display: block;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 1;
+  text-align: center;
+  color: $color-primary;
+  letter-spacing: -0.06em;
+  transition: transform $time-2 $cubic-bezier;
+}
+
+.nav-link:hover .nav-link__text {
+  transform: rotate(30deg) translateY(-36px);
+}
+
+.nav-link:hover .nav-link__text-copy {
+  transform: translateY(-36px) rotate(0deg);
+}

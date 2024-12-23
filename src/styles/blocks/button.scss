@@ -1,0 +1,78 @@
+/* stylelint-disable selector-class-pattern */
+.button {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px 27px;
+  overflow: hidden;
+  color: $color-primary;
+  background-color: transparent;
+  border: 2px solid #d8e6f166;
+  border-radius: 48px;
+  transition:
+    border-color $time-2 $cubic-bezier,
+    transform $time-2 $cubic-bezier;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -110%;
+    z-index: 0;
+    width: 110%;
+    height: 110%;
+    background-color: $color-bright;
+    transition: bottom $time-2 $cubic-bezier;
+  }
+
+  &:hover {
+    border-color: #d8e6f100;
+  }
+
+  &:hover::before {
+    bottom: 0%;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.button__text,
+.button__text-copy {
+  position: relative;
+  z-index: 1;
+  display: block;
+  overflow: hidden;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.2;
+  text-align: center;
+  letter-spacing: -0.04em;
+  transition: transform $time-2 $cubic-bezier;
+}
+
+.button__wrapper {
+  max-height: 22px;
+  overflow: hidden;
+}
+
+.button__text {
+  transform-origin: right;
+}
+
+.button__text-copy {
+  color: $color-dark;
+  transform: rotate(30deg);
+  transform-origin: left;
+}
+
+.button:hover .button__text {
+  transform: rotate(30deg) translateY(-20px);
+}
+
+.button:hover .button__text-copy {
+  transform: translateY(-22px) rotate(0deg);
+}

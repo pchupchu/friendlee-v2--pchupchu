@@ -1,6 +1,18 @@
 /* Colors */
-$base-white: #fff;
-$base-black: #333;
+$color-dark: #14161f;
+$color-bright: #fff557;
+$color-primary: #d8e6f1;
+$color-error: #ff6678;
+
+/* Fonts */
+$font-family-primary: 'TTNorms', sans-serif;
+
+/* Times */
+$time-1: 1.2s;
+$time-2: 0.4s;
+
+/* Animations */
+$cubic-bezier: cubic-bezier(0, -0.01, 0.25, 1);
 
 /* Breakpoints */
 $vp-320: 320px;
