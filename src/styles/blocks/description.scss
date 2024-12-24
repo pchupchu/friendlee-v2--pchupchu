@@ -1,0 +1,26 @@
+.description {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.description__text {
+  margin: 0 auto;
+  padding: 0;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 0.9;
+  text-align: center;
+  color: $color-primary;
+  letter-spacing: -0.04em;
+}
+
+.description__icon {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background-image: url('../assets/icons/sprite.svg#eye');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transform: translateY(6px);
+}
