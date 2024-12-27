@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 12px 27px;
+  padding: 22px 52px 26px;
   overflow: hidden;
   color: $color-primary;
   background-color: transparent;
@@ -32,7 +32,7 @@
   }
 
   &:hover::before {
-    bottom: 0%;
+    bottom: 0;
   }
 
   &:active {

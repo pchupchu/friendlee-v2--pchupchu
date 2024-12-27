@@ -1,0 +1,60 @@
+.service {
+  position: relative;
+  padding-bottom: 40px;
+  border-bottom: 2px solid $color-primary;
+  transition: border $time-2 $cubic-bezier;
+
+  &::after {
+    mask-image: url('../assets/icons/sprite.svg#star-icon');
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    background-color: $color-primary;
+    transition: background-color $time-2 $cubic-bezier;
+  }
+
+  &:hover {
+    border-color: $color-bright;
+  }
+
+  &:hover::after {
+    background-color: $color-bright;
+  }
+}
+
+.service__link {
+  text-decoration: none;
+}
+
+.service__title {
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 1;
+  color: $color-primary;
+  letter-spacing: -0.06em;
+  transition: color $time-2 $cubic-bezier;
+}
+
+.service__description {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  color: $color-primary;
+  letter-spacing: -0.04em;
+  transition: color $time-2 $cubic-bezier;
+}
+
+.service:hover .service__title,
+.service:hover .service__description {
+  color: $color-bright;
+}

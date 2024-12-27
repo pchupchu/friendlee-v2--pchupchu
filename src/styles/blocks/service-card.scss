@@ -1,0 +1,89 @@
+.service-card {
+  text-decoration: none;
+}
+
+.service-card__title-wrapper {
+  gap: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 22px;
+  padding-top: 22px;
+  color: $color-primary;
+  border: 2px solid $color-primary;
+  border-bottom: none;
+  transition: border $time-2 $cubic-bezier;
+}
+
+.service-card__title {
+  max-width: 80%;
+  margin: 0;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1;
+  text-align: center;
+  letter-spacing: -0.04em;
+  transition: color $time-2 $cubic-bezier;
+}
+
+.service-card__icon {
+  mask-size: contain;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  width: 70px;
+  height: 70px;
+  background-color: $color-primary;
+  transition: background $time-2 $cubic-bezier;
+
+  // width $time-2 $cubic-bezier,
+  // height $time-2 $cubic-bezier,
+}
+
+.service-card__icon--research {
+  mask-image: url('../assets/icons/sprite.svg#sphere');
+}
+
+.service-card__icon--brand {
+  mask-image: url('../assets/icons/sprite.svg#star');
+}
+
+.service-card__icon--strategy {
+  mask-image: url('../assets/icons/sprite.svg#arrow');
+}
+
+.service-card__subtitle {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 1;
+  color: $color-primary;
+  letter-spacing: -0.06em;
+  transition: color $time-2 $cubic-bezier;
+}
+
+.service-card__description {
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: $color-primary;
+  letter-spacing: -0.04em;
+  transition: color $time-2 $cubic-bezier;
+}
+
+.service-card:hover .service-card__title-wrapper,
+.service-card:hover .service-card__tags-item {
+  color: $color-bright;
+  border-color: $color-bright;
+}
+
+.service-card:hover .service-card__subtitle,
+.service-card:hover .service-card__description {
+  color: $color-bright;
+}
+
+.service-card:hover .service-card__icon {
+  background-color: $color-bright;
+}
