@@ -7,10 +7,10 @@ export function createFooterCanvas() {
     return Math.random() * (max - min) + min;
   }
 
-  //Array that will contain all of the circles and their properties
-  let circles = [];
+  // Array that will contain all of the rectangles and their properties
+  let rectangles = [];
 
-  //Colors
+  // Colors
   const colors = [
     '#F2BC1C',
     '#FEED25',
@@ -18,120 +18,114 @@ export function createFooterCanvas() {
     '#F5C461',
     '#EDA8FA',
     '#9C64FC',
-    '#14161F',
   ];
 
-  //Set body background to one of the colors you want to use
+  // Set body background to one of the colors you want to use
   document.body.style.backgroundColor = '#000000';
 
-  //Function to create a circle data
-  function initCircles() {
-    //Clear previous circle data
-    circles = [];
+  // Function to create rectangle data
+  function initRectangles() {
+    // Clear previous rectangle data
+    rectangles = [];
 
-    //Ammount of circles based on the screen size
-    let circleCount = window.innerWidth / 100;
+    // Amount of rectangles based on the screen size
+    let rectangleCount = window.innerWidth / 100;
 
-    //Loop the code inside as many times as there are circles
-    for (let i = 0; i < circleCount; i++) {
-      //Set circle radius
-      let radius = window.innerWidth / 4;
+    // Loop the code inside as many times as there are rectangles
+    for (let i = 0; i < rectangleCount; i++) {
+      // Set rectangle width and height
+      let width = window.innerWidth * 1.5; // 150vw
+      let height = window.innerHeight * 0.5; // 50vh
 
-      //Set random circle position inside the canvas on X axis
-      let x = randomBetween(radius, canvas.width - radius);
-      //Set random circle position inside the canvas on Y axis
-      let y = randomBetween(radius, canvas.width - radius);
+      // Set random rectangle position inside the canvas on X axis
+      let x = randomBetween(0, canvas.width - width);
+      // Set random rectangle position inside the canvas on Y axis
+      let y = randomBetween(0, canvas.height - height);
 
-      //Set random velocity on X axis (speed as whicn the circle moves)
-      //Also based on the screen size
-      let dx = randomBetween(
-        window.innerWidth / -2000,
-        window.innerWidth / 2000
+      // Set fixed velocity angle of -15 or 15 degrees
+      let angle = Math.random() < 0.5 ? -15 : 15; // Choose either -15 or 15
+      angle = angle * (Math.PI / 180); // Convert to radians
+      let speed = randomBetween(
+        window.innerWidth / 3000,
+        window.innerWidth / 1500
       );
-      //Set random velocity on Y axis (speed as whicn the circle moves)
-      let dy = randomBetween(
-        window.innerWidth / -2000,
-        window.innerWidth / 2000
-      );
+      let dx = Math.cos(angle) * speed;
+      let dy = Math.sin(angle) * speed;
 
-      //Set random color
+      // Set random color
       let color = colors[Math.floor(Math.random() * colors.length)];
 
-      //Add the new circule data inside the circles array
-      circles.push({
+      // Add the new rectangle data inside the rectangles array
+      rectangles.push({
         x,
         y,
         dx,
         dy,
-        radius,
+        width,
+        height,
         color,
+        angle, // Store rotation angle
       });
     }
   }
 
-  //Draw the circles with our new values
-  function drawCircles(circle) {
-    //Begin circle path
-    ctx.beginPath();
-    //Create circle with previously established parameters
-    ctx.arc(circle.x, circle.y, circle.radius, 0, Math.PI * 2, false);
-    //Create a fill with the previously established color
-    ctx.fillStyle = circle.color;
-    //Fill the circle
-    ctx.fill();
-    //Close the circle path
-    ctx.closePath();
+  // Draw the rectangles with our new values
+  function drawRectangles(rect) {
+    ctx.save();
+    // Translate to rectangle center
+    ctx.translate(rect.x + rect.width / 2, rect.y + rect.height / 2);
+    // Rotate by the rectangle's angle
+    ctx.rotate(rect.angle);
+    // Set fill style with the rectangle color
+    ctx.fillStyle = rect.color;
+    // Draw rectangle centered on the translated origin
+    ctx.fillRect(-rect.width / 2, -rect.height / 2, rect.width, rect.height);
+    ctx.restore();
   }
 
-  //Animation function
+  // Animation function
   function animate() {
-    //Create animation by rerunning the animate function overand over
+    // Create animation by rerunning the animate function over and over
     requestAnimationFrame(animate);
-    //Clear all previous drawn elements from the canvas
+    // Clear all previous drawn elements from the canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    //Loop through all of the circles
-    circles.forEach((circle) => {
-      //If the circle reaches the edge of the canvas on the X axis on either side
-      if (
-        circle.x + circle.radius > canvas.width ||
-        circle.x - circle.radius < 0
-      ) {
-        //Reverse the velocity of the circle (have it 'bounce off' in the other direction)
-        circle.dx = -circle.dx;
+    // Loop through all of the rectangles
+    rectangles.forEach((rect) => {
+      // If the rectangle reaches the edge of the canvas on the X axis on either side
+      if (rect.x + rect.width > canvas.width || rect.x < 0) {
+        // Reverse the velocity of the rectangle (have it 'bounce off' in the other direction)
+        rect.dx = -rect.dx;
       }
-      //If the circle reaches the edge of the canvas on the Y axis on either side
-      if (
-        circle.y + circle.radius > canvas.height ||
-        circle.y - circle.radius < 0
-      ) {
-        //Reverse the velocity of the circle (have it 'bounce off' in the other direction)
-        circle.dy = -circle.dy;
+      // If the rectangle reaches the edge of the canvas on the Y axis on either side
+      if (rect.y + rect.height > canvas.height || rect.y < 0) {
+        // Reverse the velocity of the rectangle (have it 'bounce off' in the other direction)
+        rect.dy = -rect.dy;
       }
-      //In any other case, move the circle in the initial direction
-      circle.x += circle.dx;
-      circle.y += circle.dy;
-      //Move the circle by redrawing them over and over inside the animation
-      drawCircles(circle);
+      // In any other case, move the rectangle in the initial direction
+      rect.x += rect.dx;
+      rect.y += rect.dy;
+      // Move the rectangle by redrawing them over and over inside the animation
+      drawRectangles(rect);
     });
   }
 
-  //Function that makes the canvas always fullscreen
-  //We will make it a bit larger than the screen size
+  // Function that makes the canvas always fullscreen
+  // We will make it a bit larger than the screen size
   function resizeCanvas() {
     canvas.width = window.innerWidth * 1.5;
     canvas.height = window.innerHeight * 1.5;
-    initCircles();
+    initRectangles();
   }
 
-  //Make canvas full width on page load
+  // Make canvas full width on page load
   resizeCanvas();
 
-  //Make canvas full width every time in the screeen is resized
+  // Make canvas full width every time the screen is resized
   window.addEventListener('resize', resizeCanvas);
 
-  //Create the circle data on the page load
-  initCircles();
+  // Create the rectangle data on the page load
+  initRectangles();
 
-  //Run the animation on page load
+  // Run the animation on page load
   animate();
 }
