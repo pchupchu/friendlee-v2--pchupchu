@@ -1,5 +1,5 @@
-export function createCanvas() {
-  const canvas = document.getElementById('canvas');
+export function createFooterCanvas() {
+  const canvas = document.getElementById('footer-canvas');
   const ctx = canvas.getContext('2d');
 
   // Function to generate a random number within a range
