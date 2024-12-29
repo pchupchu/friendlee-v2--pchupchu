@@ -46,8 +46,8 @@ export function createFooterCanvas() {
       let angle = Math.random() < 0.5 ? -15 : 15; // Choose either -15 or 15
       angle = angle * (Math.PI / 180); // Convert to radians
       let speed = randomBetween(
-        window.innerWidth / 3000,
-        window.innerWidth / 1500
+        window.innerWidth / 500,
+        window.innerWidth / 250
       );
       let dx = Math.cos(angle) * speed;
       let dy = Math.sin(angle) * speed;
