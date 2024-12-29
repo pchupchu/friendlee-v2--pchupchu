@@ -20,11 +20,7 @@
   background-position: right -20vw bottom -50vh;
   background-size: 150vw 120vh;
 
-  @include vp-375 {
-    // background-color: rgb(255 81 0);
-  }
-
-  @include vp-480 {
+  @include vp-576 {
     // background-color: rgb(229 255 0);
   }
 
@@ -68,6 +64,11 @@
   margin-top: auto;
   padding: 16px;
   overflow: hidden;
+
+  @include vp-576 {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
+  }
 }
 
 .footer__text {
@@ -85,6 +86,13 @@
   display: flex;
   flex-direction: column;
   list-style: none;
+}
+
+.footer__contacts {
+  @include vp-576 {
+    grid-row: 1;
+    grid-column: 1;
+  }
 }
 
 .footer__links {
@@ -149,16 +157,24 @@
 
 .footer__btn {
   position: relative;
+  max-width: 500px;
   padding: 0;
   background-color: transparent;
   border: none;
   cursor: pointer;
 
-  // border-bottom: 1px solid $color-dark;
+  @include vp-576 {
+    grid-column: 1 / span 2;
+    max-width: 100%;
+  }
 }
 
 .footer__btn-wrapper {
   max-height: 102px;
+
+  @include vp-576 {
+    max-height: 51px;
+  }
 }
 
 .footer__btn-text,
