@@ -215,8 +215,16 @@
 
 .footer__btn:hover .footer__btn-text {
   transform: rotate(30deg) translateY(-102px);
+
+  @include vp-576 {
+    transform: rotate(30deg) translateY(-51px);
+  }
 }
 
 .footer__btn:hover .footer__btn-text-copy {
   transform: translateY(-102px) rotate(0deg);
+
+  @include vp-576 {
+    transform: translateY(-51px) rotate(0deg);
+  }
 }
