@@ -8,7 +8,10 @@
   justify-content: space-between;
   width: 100%;
   min-height: 50px;
-  padding: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  transform: translateY(-100%);
+  transition: transform $time-2 $cubic-bezier;
 
   &::before {
     backdrop-filter: blur(6px);
@@ -23,8 +26,15 @@
     );
   }
 
-  // @include vp-375 {
-  // }
+  @include vp-1024 {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.header--isVisible {
+  transform: translateY(0);
 }
 
 .header__logo {
