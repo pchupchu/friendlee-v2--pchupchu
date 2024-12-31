@@ -20,14 +20,6 @@
   background-position: right -20vw bottom -50vh;
   background-size: 150vw 120vh;
 
-  @include vp-576 {
-    // background-color: rgb(229 255 0);
-  }
-
-  @include vp-640 {
-    // background-color: rgb(60 255 0);
-  }
-
   @include vp-1024 {
     // background-color: rgb(0 195 255);
   }
@@ -59,15 +51,19 @@
   display: grid;
   grid-template-columns: 1fr;
   align-items: end;
-
-  // min-height: 100vh;
   margin-top: auto;
-  padding: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
   overflow: hidden;
 
   @include vp-576 {
     grid-template-columns: repeat(2, 1fr);
     align-items: start;
+  }
+
+  @include vp-1024 {
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 }
 
@@ -78,6 +74,10 @@
   line-height: 1.2;
   color: $color-dark;
   letter-spacing: -0.06em;
+
+  @include vp-1024 {
+    font-size: 18px;
+  }
 }
 
 .footer__contacts,
@@ -112,6 +112,10 @@
 
 .footer__link-wrapper {
   max-height: 18px;
+
+  @include vp-1024 {
+    max-height: 22px;
+  }
 }
 
 .footer__link-text,
@@ -124,6 +128,10 @@
   color: $color-dark;
   letter-spacing: -0.06em;
   transition: transform $time-2 $cubic-bezier;
+
+  @include vp-1024 {
+    font-size: 18px;
+  }
 }
 
 .footer__link-text,
@@ -141,6 +149,10 @@
 
 .footer__contact-wrapper {
   max-height: 21px;
+
+  // @include vp-1024 {
+  //   max-height: 22px;
+  // }
 }
 
 .footer__contact-text,
@@ -175,6 +187,10 @@
   @include vp-576 {
     max-height: 51px;
   }
+
+  @include vp-1024 {
+    max-height: 92px;
+  }
 }
 
 .footer__btn-text,
@@ -189,6 +205,10 @@
 
   // white-space: nowrap;
   transition: transform $time-2 $cubic-bezier;
+
+  @include vp-1024 {
+    font-size: 92px;
+  }
 }
 
 .footer__btn-text-copy {
@@ -219,6 +239,10 @@
   @include vp-576 {
     transform: rotate(30deg) translateY(-51px);
   }
+
+  @include vp-1024 {
+    transform: rotate(30deg) translateY(-92px);
+  }
 }
 
 .footer__btn:hover .footer__btn-text-copy {
@@ -226,5 +250,9 @@
 
   @include vp-576 {
     transform: translateY(-51px) rotate(0deg);
+  }
+
+  @include vp-1024 {
+    transform: translateY(-92px) rotate(0deg);
   }
 }

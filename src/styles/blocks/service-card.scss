@@ -1,5 +1,11 @@
 .service-card {
+  display: block;
+  max-width: 400px;
   text-decoration: none;
+
+  @include vp-1024 {
+    max-width: 100%;
+  }
 }
 
 .service-card__title-wrapper {
@@ -25,6 +31,10 @@
   text-align: center;
   letter-spacing: -0.04em;
   transition: color $time-2 $cubic-bezier;
+
+  @include vp-1024 {
+    font-size: 47px;
+  }
 }
 
 .service-card__icon {
@@ -34,10 +44,15 @@
   width: 70px;
   height: 70px;
   background-color: $color-primary;
-  transition: background $time-2 $cubic-bezier;
+  transition:
+    background $time-2 $cubic-bezier,
+    width $time-2 $cubic-bezier,
+    height $time-2 $cubic-bezier;
 
-  // width $time-2 $cubic-bezier,
-  // height $time-2 $cubic-bezier,
+  @include vp-1024 {
+    width: 150px;
+    height: 150px;
+  }
 }
 
 .service-card__icon--research {
@@ -61,6 +76,10 @@
   color: $color-primary;
   letter-spacing: -0.06em;
   transition: color $time-2 $cubic-bezier;
+
+  @include vp-1024 {
+    font-size: 29px;
+  }
 }
 
 .service-card__description {
@@ -71,6 +90,10 @@
   color: $color-primary;
   letter-spacing: -0.04em;
   transition: color $time-2 $cubic-bezier;
+
+  @include vp-1024 {
+    font-size: 18px;
+  }
 }
 
 .service-card:hover .service-card__title-wrapper,
@@ -86,4 +109,9 @@
 
 .service-card:hover .service-card__icon {
   background-color: $color-bright;
+
+  @include vp-1024 {
+    width: 100px;
+    height: 100px;
+  }
 }

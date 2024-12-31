@@ -48,9 +48,15 @@
   justify-content: center;
   width: 100%;
   min-height: 100vh;
-  padding: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
   overflow: hidden;
   animation: hero-animation 1.2s $cubic-bezier forwards;
+
+  @include vp-1024 {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
 }
 
 .hero__title {
@@ -64,6 +70,11 @@
   text-align: center;
   color: $color-dark;
   letter-spacing: -0.04em;
+
+  @include vp-1024 {
+    margin-bottom: 150px;
+    font-size: 47px;
+  }
 }
 
 @keyframes hero-animation {

@@ -2,4 +2,9 @@
   width: 100%;
   padding-right: 16px;
   padding-left: 16px;
+
+  @include vp-1024 {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
 }

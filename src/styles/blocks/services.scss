@@ -21,6 +21,10 @@
   @include vp-576 {
     margin: 0;
   }
+
+  @include vp-1024 {
+    font-size: 92px;
+  }
 }
 
 .services__list {
@@ -28,7 +32,7 @@
   display: grid;
   grid-template-columns: 1fr;
   justify-content: center;
-  margin-bottom: 56px;
+  margin: 0 auto 56px;
   list-style: none;
 
   @include vp-576 {

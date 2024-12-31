@@ -3,6 +3,10 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 40px;
+
+  @include vp-1024 {
+    gap: 32px;
+  }
 }
 
 .tabs__btn {
@@ -25,6 +29,10 @@
   &:hover {
     color: $color-bright;
     border-color: $color-bright;
+  }
+
+  @include vp-1024 {
+    font-size: 36px;
   }
 }
 
