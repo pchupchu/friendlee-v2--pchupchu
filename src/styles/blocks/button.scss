@@ -19,10 +19,10 @@
   &::before {
     content: '';
     position: absolute;
-    bottom: -110%;
+    bottom: -100%;
     z-index: 0;
-    width: 110%;
-    height: 110%;
+    width: 100%;
+    height: 100%;
     background-color: $color-bright;
     transition: bottom $time-2 $cubic-bezier;
   }
@@ -37,6 +37,16 @@
 
   &:active {
     transform: scale(0.9);
+  }
+
+  @include vp-1200 {
+    padding: 20px 52px 24px;
+  }
+}
+
+.button__header {
+  @include vp-1200 {
+    padding: 12px 28px 16px;
   }
 }
 

@@ -7,6 +7,11 @@
   @include vp-1024 {
     gap: 32px;
   }
+
+  @include vp-1200 {
+    gap: 40px;
+    margin-bottom: 0;
+  }
 }
 
 .tabs__btn {
@@ -32,7 +37,12 @@
   }
 
   @include vp-1024 {
+    padding-bottom: 8px;
     font-size: 36px;
+  }
+
+  @include vp-1200 {
+    font-size: 47px;
   }
 }
 

@@ -28,6 +28,13 @@
   }
 }
 
+.services__secondary-list {
+  @include vp-1200 {
+    padding-top: 0;
+    transition: padding-top $time-1 $cubic-bezier;
+  }
+}
+
 .service__link {
   text-decoration: none;
 }

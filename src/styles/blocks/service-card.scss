@@ -1,10 +1,34 @@
 .service-card {
+  position: relative;
   display: block;
   max-width: 400px;
   text-decoration: none;
 
   @include vp-1024 {
     max-width: 100%;
+  }
+
+  @include vp-1200 {
+    &::after {
+      content: '...';
+      position: absolute;
+      bottom: -44px;
+      left: 0;
+      width: 48px;
+      height: 34px;
+      font-size: 34px;
+      line-height: 0.4;
+      text-align: center;
+      color: $color-primary;
+      letter-spacing: -0.02em;
+      border: 2px solid $color-primary;
+      border-radius: 48px;
+      transition: opacity $time-2 $cubic-bezier;
+    }
+  }
+
+  &:hover::after {
+    opacity: 0;
   }
 }
 
@@ -20,6 +44,10 @@
   border: 2px solid $color-primary;
   border-bottom: none;
   transition: border $time-2 $cubic-bezier;
+
+  @include vp-1200 {
+    gap: 40px;
+  }
 }
 
 .service-card__title {
@@ -52,6 +80,11 @@
   @include vp-1024 {
     width: 150px;
     height: 150px;
+  }
+
+  @include vp-1200 {
+    width: 220px;
+    height: 220px;
   }
 }
 
@@ -114,4 +147,8 @@
     width: 100px;
     height: 100px;
   }
+}
+
+.service-card:hover .service-card__tags {
+  max-height: 300px;
 }

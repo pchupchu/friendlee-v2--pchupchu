@@ -2,8 +2,14 @@
   gap: 8px;
   display: flex;
   flex-wrap: wrap;
+  overflow: hidden;
   list-style: none;
   color: $color-primary;
+  transition: max-height $time-2 $cubic-bezier;
+
+  @include vp-1200 {
+    max-height: 80px;
+  }
 }
 
 .tags__item {
@@ -14,18 +20,25 @@
   border: 2px solid $color-primary;
   border-radius: 33px;
 
+  @include vp-1200 {
+    padding-bottom: 4px;
+  }
+
   // position: relative;
 }
 
 .tags__name {
   margin: 0;
+  overflow: hidden;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.2;
   text-align: center;
   letter-spacing: -0.06em;
   white-space: nowrap;
+  text-overflow: ellipsis;
 
-  // text-overflow: ellipsis;
-  // overflow: hidden;
+  @include vp-1200 {
+    font-size: 18px;
+  }
 }

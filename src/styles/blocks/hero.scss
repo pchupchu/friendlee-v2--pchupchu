@@ -72,6 +72,7 @@
   letter-spacing: -0.04em;
 
   @include vp-1024 {
+    max-width: 740px;
     margin-bottom: 150px;
     font-size: 47px;
   }

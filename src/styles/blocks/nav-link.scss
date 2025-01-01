@@ -9,6 +9,10 @@
 
 .nav-link__wrapper {
   max-height: 40px;
+
+  @include vp-1200 {
+    max-height: 20px;
+  }
 }
 
 .nav-link__text {
@@ -32,12 +36,24 @@
   color: $color-primary;
   letter-spacing: -0.06em;
   transition: transform $time-2 $cubic-bezier;
+
+  @include vp-1200 {
+    font-size: 18px;
+  }
 }
 
 .nav-link:hover .nav-link__text {
   transform: rotate(30deg) translateY(-36px);
+
+  @include vp-1200 {
+    transform: rotate(30deg) translateY(-18px);
+  }
 }
 
 .nav-link:hover .nav-link__text-copy {
   transform: translateY(-36px) rotate(0deg);
+
+  @include vp-1200 {
+    transform: translateY(-18px) rotate(0deg);
+  }
 }

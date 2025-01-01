@@ -46,6 +46,10 @@
   position: relative;
   z-index: 12;
   cursor: pointer;
+
+  @include vp-1200 {
+    display: none;
+  }
 }
 
 .header__nav {
@@ -62,6 +66,18 @@
   transition:
     visibility 0.2s,
     opacity 0.4s linear;
+
+  @include vp-1200 {
+    gap: 47px;
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    height: auto;
+    padding: 0;
+    background-color: transparent;
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 .header__nav-toggle {
@@ -116,14 +132,23 @@
   height: max-content;
   padding: 0;
   list-style: none;
+
+  @include vp-1200 {
+    gap: 80px;
+    flex-direction: row;
+    min-width: 480px;
+  }
 }
 
 .header__nav-list-item:last-of-type {
   margin: 0;
+
+  @include vp-1200 {
+    margin-left: auto;
+  }
 }
 
-.header__button {
-  align-self: self-start;
+.header__btn {
   width: 100%;
   min-width: 190px;
   margin-top: auto;

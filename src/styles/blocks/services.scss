@@ -25,6 +25,10 @@
   @include vp-1024 {
     font-size: 92px;
   }
+
+  @include vp-1200 {
+    font-size: 123px;
+  }
 }
 
 .services__list {
@@ -40,6 +44,29 @@
     grid-column: 1 / span 2;
     column-gap: 16px;
   }
+
+  @include vp-1200 {
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 80px;
+  }
+}
+
+.services__list-item {
+  @include vp-1200 {
+    transition: transform $time-1 $cubic-bezier;
+
+    // &:nth-child(2) {
+    //   transform: translateY(350px);
+    // }
+
+    // &:nth-child(3) {
+    //   transform: translateY(100px);
+    // }
+  }
+}
+
+.services__list-item--visible {
+  transform: translateY(0);
 }
 
 .services__secondary-list {
@@ -105,6 +132,10 @@
 
   @include vp-768 {
     background-position: center;
+  }
+
+  @include vp-1024 {
+    background-position: center bottom 30%;
   }
 }
 

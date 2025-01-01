@@ -67,6 +67,14 @@
   }
 }
 
+.footer__links-wrapper {
+  @include vp-1200 {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+  }
+}
+
 .footer__text {
   margin: 0;
   font-weight: 500;
@@ -92,6 +100,11 @@
   @include vp-576 {
     grid-row: 1;
     grid-column: 1;
+  }
+
+  @include vp-1200 {
+    gap: 46px;
+    flex-direction: row;
   }
 }
 
